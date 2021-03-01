@@ -29,15 +29,15 @@ public class Modelo implements IModelo {
 	@Override
 	public void comenzar() {
 		alumnos.comenzar();
-		prestamos.comenzar();
 		libros.comenzar();
+		prestamos.comenzar();
 	}
 
 	@Override
 	public void terminar() {
 		alumnos.terminar();
-		prestamos.terminar();
 		libros.terminar();
+		prestamos.terminar();
 	}
 	
 	@Override

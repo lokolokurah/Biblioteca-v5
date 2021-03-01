@@ -67,8 +67,8 @@ public class Prestamos implements IPrestamos {
 	private void escribir() {
 		File ficheroPrestamos = new File(NOMBRE_FICHERO_PRESTAMOS);
 		try (ObjectOutputStream salida = new ObjectOutputStream(new FileOutputStream(ficheroPrestamos))) {
-			for (Prestamo prestamoo : coleccionPrestamos)
-				salida.writeObject(prestamoo);
+			for (Prestamo prestamo : coleccionPrestamos)
+				salida.writeObject(prestamo);
 			System.out.println("Fichero prestamos escrito satisfactoriamente.");
 		} catch (FileNotFoundException e) {
 			System.out.println("No puedo crear el fichero de prestamos.");
