@@ -22,7 +22,7 @@ import org.iesalandalus.programacion.biblioteca.mvc.modelo.negocio.ILibros;
 
 public class Libros implements ILibros {
 	
-	private static final String NOMBRE_FICHERO_LIBROS = "datos/libros.dat";
+	private static final String NOMBRE_FICHERO_LIBROS = "datos" + File.separator + "libros.dat";
 	private List<Libro> coleccionLibros;
 
 	public Libros() {

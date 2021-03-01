@@ -19,7 +19,7 @@ import org.iesalandalus.programacion.biblioteca.mvc.modelo.negocio.IAlumnos;
 
 public class Alumnos implements IAlumnos {
 
-	private static final String NOMBRE_FICHERO_ALUMNOS = "datos/alumnos.dat";
+	private static final String NOMBRE_FICHERO_ALUMNOS = "datos" + File.separator + "alumnos.dat";
 	private List<Alumno> coleccionAlumnos;
 
 	public Alumnos() {
