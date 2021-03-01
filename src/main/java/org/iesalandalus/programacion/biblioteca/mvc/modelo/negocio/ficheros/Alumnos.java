@@ -40,9 +40,9 @@ public class Alumnos implements IAlumnos {
 				insertar(alumno);
 			} while (alumno != null);
 		} catch (ClassNotFoundException e) {
-			System.out.println("No puedo encontrar la clase que tengo que leer.");
+			System.out.println("No se ha podido encontrar la clase a leer.");
 		} catch (FileNotFoundException e) {
-			System.out.println("No puedo abrir el fichero de alumnos.");
+			System.out.println("No se ha podido abrir el fichero de alumnos.");
 		} catch (EOFException e) {
 			System.out.println("Fichero alumnos leído satisfactoriamente.");
 		} catch (IOException e) {
@@ -64,7 +64,7 @@ public class Alumnos implements IAlumnos {
 				salida.writeObject(alumno);
 			System.out.println("Fichero alumnos escrito satisfactoriamente.");
 		} catch (FileNotFoundException e) {
-			System.out.println("No puedo crear el fichero de alumnos.");
+			System.out.println("No se ha podido crear el fichero de alumnos.");
 		} catch (IOException e) {
 			System.out.println("Error inesperado de Entrada/Salida.");
 		}

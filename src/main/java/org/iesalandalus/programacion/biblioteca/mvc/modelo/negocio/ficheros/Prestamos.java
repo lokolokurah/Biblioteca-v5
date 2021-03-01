@@ -47,9 +47,9 @@ public class Prestamos implements IPrestamos {
 				prestar(prestamo);
 			} while (prestamo != null);
 		} catch (ClassNotFoundException e) {
-			System.out.println("No puedo encontrar la clase que tengo que leer.");
+			System.out.println("No se ha podido encontrar la clase a leer.");
 		} catch (FileNotFoundException e) {
-			System.out.println("No puedo abrir el fichero de prestamos.");
+			System.out.println("No se ha podido abrir el fichero de prestamos.");
 		} catch (EOFException e) {
 			System.out.println("Fichero prestamos leído satisfactoriamente.");
 		} catch (IOException e) {
@@ -71,7 +71,7 @@ public class Prestamos implements IPrestamos {
 				salida.writeObject(prestamo);
 			System.out.println("Fichero prestamos escrito satisfactoriamente.");
 		} catch (FileNotFoundException e) {
-			System.out.println("No puedo crear el fichero de prestamos.");
+			System.out.println("No se ha podido crear el fichero de prestamos.");
 		} catch (IOException e) {
 			System.out.println("Error inesperado de Entrada/Salida.");
 		}

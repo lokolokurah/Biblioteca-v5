@@ -43,9 +43,9 @@ public class Libros implements ILibros {
 				insertar(libro);
 			} while (libro != null);
 		} catch (ClassNotFoundException e) {
-			System.out.println("No puedo encontrar la clase que tengo que leer.");
+			System.out.println("No se ha podido encontrar la clase a leer.");
 		} catch (FileNotFoundException e) {
-			System.out.println("No puedo abrir el fichero de libros.");
+			System.out.println("No se ha podido abrir el fichero de libros.");
 		} catch (EOFException e) {
 			System.out.println("Fichero libros leído satisfactoriamente.");
 		} catch (IOException e) {
@@ -67,7 +67,7 @@ public class Libros implements ILibros {
 				salida.writeObject(libro);
 			System.out.println("Fichero libros escrito satisfactoriamente.");
 		} catch (FileNotFoundException e) {
-			System.out.println("No puedo crear el fichero de libros.");
+			System.out.println("No se ha podido crear el fichero de libros.");
 		} catch (IOException e) {
 			System.out.println("Error inesperado de Entrada/Salida.");
 		}
