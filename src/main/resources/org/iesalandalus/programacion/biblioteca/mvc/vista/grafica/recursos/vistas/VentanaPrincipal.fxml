@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="450.0" prefWidth="650.0" styleClass="vbox" stylesheets="@../estilos/estilos.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.iesalandalus.programacion.biblioteca.mvc.vista.grafica.controladoresvistas.ControladorVentanaPrincipal">
+   <children>
+      <MenuBar>
+        <menus>
+          <Menu mnemonicParsing="false" text="Archivo">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#salir" text="Salir" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Ayuda">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#acercaDe" text="Acerca de ..." />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+        <tabs>
+          <Tab text="Alumnos">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imagenes/alumnos.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <content>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                     <children>
+                        <BorderPane prefHeight="50.0" prefWidth="630.0">
+                           <right>
+                              <HBox alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="92.0" spacing="7.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <Button minWidth="33.0" mnemonicParsing="false" onAction="#anadirAlumno" prefHeight="30.0" prefWidth="33.0" text="+" textAlignment="CENTER" />
+                                    <Button minWidth="33.0" mnemonicParsing="false" onAction="#borrarAlumno" prefHeight="30.0" prefWidth="33.0" text="-" textAlignment="CENTER" />
+                                 </children>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <BorderPane.margin>
+                                    <Insets />
+                                 </BorderPane.margin>
+                              </HBox>
+                           </right>
+                           <left>
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="101.0" style="-fx-font-size: 25;" text="Alumnos" BorderPane.alignment="CENTER">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </Label>
+                           </left>
+                        </BorderPane>
+                        <TableView fx:id="tvAlumnos" prefHeight="200.0" prefWidth="200.0">
+                          <columns>
+                            <TableColumn fx:id="tcNombre" prefWidth="285.0" text="Nombre" />
+                            <TableColumn fx:id="tcCorreo" minWidth="0.0" prefWidth="230.0" text="Correo" />
+                            <TableColumn fx:id="tcCurso" minWidth="0.0" prefWidth="113.0" text="Curso" />
+                          </columns>
+                           <contextMenu>
+                              <ContextMenu>
+                                <items>
+                                  <MenuItem mnemonicParsing="false" onAction="#anadirAlumno" text="Añadir Alumno" />
+                                  <MenuItem mnemonicParsing="false" onAction="#borrarAlumno" text="Borrar Alumno" />
+                                  <SeparatorMenuItem mnemonicParsing="false" />
+                                  <MenuItem mnemonicParsing="false" onAction="#anadirPrestamoAlumno" text="Realizar Prestamo" />
+                                </items>
+                              </ContextMenu>
+                           </contextMenu>
+                        </TableView>
+                        <BorderPane prefHeight="110.0" prefWidth="630.0">
+                           <left>
+                              <Label contentDisplay="CENTER" prefHeight="30.0" prefWidth="266.0" style="-fx-font-size: 23;" text="Prestamos del alumno" BorderPane.alignment="CENTER" />
+                           </left>
+                           <right>
+                              <HBox alignment="CENTER_RIGHT" prefHeight="49.0" prefWidth="200.0" spacing="7.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <Button minWidth="33.0" mnemonicParsing="false" onAction="#anadirPrestamoAlumno" prefHeight="30.0" prefWidth="33.0" text="P" textAlignment="CENTER" />
+                                    <Button minWidth="33.0" mnemonicParsing="false" onAction="#devolverPrestamoAlumno" prefHeight="30.0" prefWidth="33.0" text="D" textAlignment="CENTER" />
+                                    <Button minWidth="33.0" mnemonicParsing="false" onAction="#borrarPrestamoAlumno" prefHeight="30.0" prefWidth="33.0" text="B" textAlignment="CENTER" />
+                                 </children>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </HBox>
+                           </right>
+                        </BorderPane>
+                        <TableView fx:id="tvPrestamosAlumno" prefHeight="187.0" prefWidth="630.0">
+                          <columns>
+                            <TableColumn fx:id="tcaLibro" prefWidth="222.0" text="Libro" />
+                            <TableColumn fx:id="tcafPrestamo" prefWidth="141.0" text="Fecha Prestamo" />
+                            <TableColumn fx:id="tcafDevolucion" prefWidth="175.0" text="Fecha Devolución" />
+                            <TableColumn fx:id="tcaPuntos" prefWidth="90.0" text="Puntos" />
+                          </columns>
+                           <contextMenu>
+                              <ContextMenu>
+                                <items>
+                                    <MenuItem mnemonicParsing="false" onAction="#devolverPrestamoAlumno" text="Devolver Prestamo" />
+                                  <MenuItem mnemonicParsing="false" onAction="#borrarPrestamoAlumno" text="Borrar Prestamo" />
+                                </items>
+                              </ContextMenu>
+                           </contextMenu>
+                        </TableView>
+                        <Label fx:id="primeroESO" contentDisplay="CENTER" prefHeight="16.0" prefWidth="906.0" style="-fx-alignment: center;" text="XDDDDDD" textAlignment="CENTER" />
+                     </children>
+                  </VBox>
+               </content>
+            </Tab>
+            <Tab text="Libros">
+               <content>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                     <children>
+                        <BorderPane prefHeight="50.0" prefWidth="630.0">
+                           <left>
+                              <Label alignment="CENTER" contentDisplay="CENTER" style="-fx-font-size: 25;" text="Libros" BorderPane.alignment="CENTER">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <BorderPane.margin>
+                                    <Insets />
+                                 </BorderPane.margin>
+                              </Label>
+                           </left>
+                           <right>
+                              <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="7.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <Button minWidth="33.0" mnemonicParsing="false" onAction="#anadirLibro" prefHeight="30.0" prefWidth="33.0" text="+" textAlignment="CENTER" />
+                                    <Button minWidth="33.0" mnemonicParsing="false" onAction="#borrarLibro" prefHeight="30.0" prefWidth="33.0" text="-" textAlignment="CENTER" />
+                                 </children>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <BorderPane.margin>
+                                    <Insets />
+                                 </BorderPane.margin>
+                              </HBox>
+                           </right>
+                        </BorderPane>
+                        <TableView fx:id="tvLibros" prefHeight="200.0" prefWidth="200.0">
+                          <columns>
+                            <TableColumn fx:id="tcTitulo" prefWidth="191.19996297359467" text="Titulo" />
+                              <TableColumn fx:id="tcAutor" prefWidth="302.39996337890625" text="Autor" />
+                            <TableColumn fx:id="tcPD" prefWidth="456.79998779296875" text="Páginas (p) / Duración (m)" />
+                          </columns>
+                           <contextMenu>
+                              <ContextMenu>
+                                <items>
+                                    <MenuItem mnemonicParsing="false" onAction="#anadirLibro" text="Añadir Libro" />
+                                  <MenuItem mnemonicParsing="false" onAction="#borrarLibro" text="Borrar Libro" />
+                                    <SeparatorMenuItem mnemonicParsing="false" />
+                                    <MenuItem mnemonicParsing="false" onAction="#anadirPrestamoLibro" text="Realizar Prestamo" />
+                                </items>
+                              </ContextMenu>
+                           </contextMenu>
+                        </TableView>
+                        <BorderPane prefHeight="58.0" prefWidth="630.0">
+                           <left>
+                              <Label style="-fx-font-size: 23;" text="Prestamos del libro" BorderPane.alignment="CENTER" />
+                           </left>
+                           <right>
+                              <HBox alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="156.0" spacing="7.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <Button minWidth="33.0" mnemonicParsing="false" onAction="#anadirPrestamoLibro" prefHeight="30.0" prefWidth="33.0" text="P" textAlignment="CENTER" />
+                                    <Button minWidth="33.0" mnemonicParsing="false" onAction="#devolverPrestamoLibro" prefHeight="30.0" prefWidth="33.0" text="D" textAlignment="CENTER" />
+                                    <Button minWidth="33.0" mnemonicParsing="false" onAction="#borrarPrestamoLibro" prefHeight="30.0" prefWidth="33.0" text="B" textAlignment="CENTER" />
+                                 </children>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </HBox>
+                           </right>
+                        </BorderPane>
+                        <TableView fx:id="tvPrestamosLibro" prefHeight="200.0" prefWidth="515.0">
+                          <columns>
+                            <TableColumn fx:id="tclAlumno" prefWidth="182.40003621578217" text="Alumno" />
+                            <TableColumn fx:id="tclfPrestamo" prefWidth="164.79998779296875" text="Fecha Prestamo" />
+                              <TableColumn fx:id="tclfDevolucion" prefWidth="191.99993896484375" text="Fecha Devolución" />
+                              <TableColumn fx:id="tclPuntos" minWidth="0.0" prefWidth="94.4000244140625" text="Puntos" />
+                          </columns>
+                           <contextMenu>
+                              <ContextMenu>
+                                <items>
+                                  <MenuItem mnemonicParsing="false" onAction="#devolverPrestamoLibro" text="Devolver Prestamo" />
+                                  <MenuItem mnemonicParsing="false" onAction="#borrarPrestamoLibro" text="Borrar Prestamo" />
+                                </items>
+                              </ContextMenu>
+                           </contextMenu>
+                        </TableView>
+                     </children>
+                  </VBox>
+               </content>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imagenes/libro.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+          </Tab>
+          <Tab text="Prestamos">
+               <content>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                     <children>
+                        <BorderPane prefHeight="27.0" prefWidth="630.0">
+                           <left>
+                              <Label style="-fx-font-size: 25;" text="Prestamos" BorderPane.alignment="CENTER" />
+                           </left>
+                           <right>
+                              <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="7.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <Button minWidth="33.0" mnemonicParsing="false" onAction="#anadirPrestamo" prefHeight="30.0" prefWidth="33.0" text="P" textAlignment="CENTER" />
+                                    <Button minWidth="33.0" mnemonicParsing="false" onAction="#devolverPrestamoGlobal" prefHeight="30.0" prefWidth="33.0" text="D" textAlignment="CENTER" />
+                                    <Button minWidth="33.0" mnemonicParsing="false" onAction="#borrarPrestamoGlobal" prefHeight="30.0" prefWidth="33.0" text="B" textAlignment="CENTER" />
+                                 </children>
+                              </HBox>
+                           </right>
+                           <center>
+                              <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <CheckBox fx:id="cbMes" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="132.0" text="Filtrar por mes" textAlignment="CENTER" />
+                                    <DatePicker fx:id="dpMes" disable="true" prefHeight="26.0" prefWidth="157.0" promptText="Mes">
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                    </DatePicker>
+                                 </children>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <BorderPane.margin>
+                                    <Insets left="30.0" />
+                                 </BorderPane.margin>
+                              </HBox>
+                           </center>
+                        </BorderPane>
+                        <TableView fx:id="tvPrestamos" prefHeight="359.0" prefWidth="611.0">
+                          <columns>
+                            <TableColumn fx:id="tcAlumno" prefWidth="165.0" text="Alumno" />
+                            <TableColumn fx:id="tcLibro" prefWidth="128.800048828125" text="Libro" />
+                              <TableColumn fx:id="tcFPrestamo" prefWidth="123.20001220703125" text="Fecha Prestamo" />
+                              <TableColumn fx:id="tcFDevolucion" prefWidth="133.59991455078125" text="Fecha Devolución" />
+                              <TableColumn fx:id="tcPuntos" prefWidth="77.5999755859375" text="Puntos" />
+                          </columns>
+                           <contextMenu>
+                              <ContextMenu>
+                                <items>
+                                  <MenuItem mnemonicParsing="false" onAction="#anadirPrestamo" text="Realizar Prestamo" />
+                                    <MenuItem mnemonicParsing="false" onAction="#devolverPrestamoGlobal" text="Devolver Prestamo" />
+                                </items>
+                              </ContextMenu>
+                           </contextMenu>
+                        </TableView>
+                        
+                     </children>
+                  </VBox>
+               </content>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imagenes/prestamo.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</VBox>
