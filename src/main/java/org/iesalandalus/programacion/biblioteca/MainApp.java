@@ -6,11 +6,12 @@ import org.iesalandalus.programacion.biblioteca.mvc.modelo.IModelo;
 import org.iesalandalus.programacion.biblioteca.mvc.modelo.Modelo;
 import org.iesalandalus.programacion.biblioteca.mvc.vista.FactoriaVista;
 import org.iesalandalus.programacion.biblioteca.mvc.vista.IVista;
+import org.iesalandalus.programacion.biblioteca.mvc.modelo.IFuenteDatos;
 
 public class MainApp {
 
 	public static void main(String[] args) {
-		IModelo modelo = new Modelo(FactoriaFuenteDatos.FICHEROS.crear());
+		IModelo modelo = new Modelo(procesarArgumentosFuenteDatos(args));
 		IVista vista = procesarArgumentosVista(args);
 		IControlador controlador = new Controlador(modelo, vista);
 		controlador.comenzar();
@@ -26,6 +27,18 @@ public class MainApp {
 			}
 		}
 		return vista;
+	}
+	
+	private static IFuenteDatos procesarArgumentosFuenteDatos(String[] args) {
+		IFuenteDatos fuenteDatos = FactoriaFuenteDatos.MONGODB.crear();
+		for (String argumento : args) {
+			if (argumento.equalsIgnoreCase("-fdficheros")) {
+				fuenteDatos = FactoriaFuenteDatos.FICHEROS.crear();
+			} else if (argumento.equalsIgnoreCase("-fdmongodb")) {
+				fuenteDatos = FactoriaFuenteDatos.MONGODB.crear();
+			} 
+		}
+		return fuenteDatos;
 	}
 	
 }

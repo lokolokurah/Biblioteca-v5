@@ -8,6 +8,14 @@ repositories {
 }
 
 dependencies {
+ 	// Use JUnit test framework
+    testImplementation 'junit:junit:4.12'   
+         
+    // Uso de Mockito
+    testCompile "org.mockito:mockito-inline:+"
+
+	// MogoDB Driver
+    compile 'org.mongodb:mongodb-driver-sync:4.0.2'
 }
 
 javafx {
